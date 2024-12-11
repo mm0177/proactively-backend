@@ -1,0 +1,44 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Speaker Booking API",
+      "description": "API documentation for the Speaker Booking platform."
+    },
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "schemes": ["http"],
+    "paths": {
+      "/auth/signup": {
+        "post": {
+          "summary": "Sign up a new user or speaker",
+          "description": "Allows users or speakers to create an account.",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Signup details",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" },
+                  "userType": { "type": "string", "enum": ["user", "speaker"] }
+                },
+                "required": ["firstName", "lastName", "email", "password", "userType"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful signup"
+            }
+          }
+        }
+      }
+    }
+  }
+  
